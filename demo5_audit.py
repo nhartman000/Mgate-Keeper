@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 import os
+import json
 from mgate_keeper import MGateKeeper, G8sonGate, GstContext
 
 model = os.getenv('MGATE_MODEL', 'gpt-4-turbo')
-if not os.getenv('OPENAI_API_KEY') and not os.getenv('GOOGLE_API_KEY'):
-    print("ERROR: Set OPENAI_API_KEY or GOOGLE_API_KEY")
+if not os.getenv('OPENAI_API_KEY'):
+    print("ERROR: Set OPENAI_API_KEY")
     exit(1)
 
 keeper = MGateKeeper(llm_model=model)
@@ -13,26 +14,22 @@ gate = G8sonGate(gate_id="G5", gate_name="Audit", atomic_requirements=[
 ])
 
 print("\n" + "="*70)
-print("DEMO 5: Save Audit Logs")
+print("DEMO 5: Audit Trail")
 print("="*70)
 print(f"\nModel: {model}\n")
 
 print("Asking: 'What is machine learning?'")
 response = keeper.query(user_prompt="What is machine learning?", gates=[gate])
 
-audit_file = "audit_log.qson"
-keeper.save_audit_log(response, audit_file)
-print(f"\n✅ Saved to: {audit_file}\n")
-
-loaded = keeper.load_audit_log(audit_file)
-
+print("\n" + "="*70)
+print("AUDIT TRAIL")
 print("="*70)
-print("AUDIT LOG")
-print("="*70)
-print(f"\nID: {loaded['audit_id']}")
-print(f"Question: {loaded['query_input']['user_prompt']}")
-print(f"Gates Passed: {loaded['gates_passed']}")
-print(f"Confidence: {loaded['overall_confidence'] * 100:.1f}%")
-print(f"\nAnswer: {loaded['llm_response']['content'][:150]}...")
-print("\n✅ Complete record saved and loaded!")
+print(f"\nResponse ID: {response.audit_trail['full_chain_hash']}")
+print(f"Gates Applied: {response.audit_trail['gates_applied']}")
+print(f"Model Used: {response.audit_trail['model']}")
+print(f"Prompt Tokens: {response.audit_trail['prompt_tokens']}")
+print(f"Completion Tokens: {response.audit_trail['completion_tokens']}")
+print(f"Confidence: {response.overall_confidence * 100:.1f}%")
+print(f"\nAnswer: {response.content[:150]}...")
+print("\n✅ Complete audit trail captured!")
 print("="*70 + "\n")

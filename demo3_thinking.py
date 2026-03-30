@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 import os
+import json
 from mgate_keeper import MGateKeeper, G8sonGate, GstContext
 
 model = os.getenv('MGATE_MODEL', 'gpt-4-turbo')
-if not os.getenv('OPENAI_API_KEY') and not os.getenv('GOOGLE_API_KEY'):
-    print("ERROR: Set OPENAI_API_KEY or GOOGLE_API_KEY")
+if not os.getenv('OPENAI_API_KEY'):
+    print("ERROR: Set OPENAI_API_KEY")
     exit(1)
 
 keeper = MGateKeeper(llm_model=model)
@@ -28,10 +29,14 @@ print("="*70)
 print("AI'S THINKING PROCESS")
 print("="*70 + "\n")
 
-for step in response.llm_reasoning_chain:
-    print(f"Step {step['step']}: {step['mmol_vector']}")
-    print(f"  Thought: {step['internal_thought']}")
-    print(f"  Confidence: {step['confidence'] * 100:.1f}%\n")
+# If reasoning chain exists, show it
+if response.llm_reasoning_chain:
+    for step in response.llm_reasoning_chain:
+        print(f"Step {step['step']}: {step.get('mmol_vector', '🧠')}")
+        print(f"  Thought: {step['internal_thought']}")
+        print(f"  Confidence: {step['confidence'] * 100:.1f}%\n")
+else:
+    print("(No reasoning chain available in current version)\n")
 
 print("="*70)
 print("FINAL ANSWER")

@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 import os
+import json
 from mgate_keeper import MGateKeeper, G8sonGate, GstContext
 
 model = os.getenv('MGATE_MODEL', 'gpt-4-turbo')
-if not os.getenv('OPENAI_API_KEY') and not os.getenv('GOOGLE_API_KEY'):
-    print("ERROR: Set OPENAI_API_KEY or GOOGLE_API_KEY")
+if not os.getenv('OPENAI_API_KEY'):
+    print("ERROR: Set OPENAI_API_KEY")
     exit(1)
 
-keeper = MGateKeeper(llm_model=model, determinism_level="strict", seed=42)
+keeper = MGateKeeper(llm_model=model)
 gate = G8sonGate(gate_id="G2", gate_name="Test", atomic_requirements=[
     {"req_id": "R1", "requirement": "Answer", "threshold_efficiency": 0.75}
 ])
