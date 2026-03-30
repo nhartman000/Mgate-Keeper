@@ -1,0 +1,12 @@
+# Environment variables - NEVER commit API keys
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/\n*.py[cod]\n*$py.class\n*.so\n.Python\nbuild/\ndevelop-eggs/\ndist/\ndownloads/\negge...d.cfg\n*.egg\nMANIFEST\n
+# Virtual Environment
+venv/\nENV/\nenv/\n.venv\n
+# IDE\n.vscode/\n.idea/\n*.swp\n*.swo\n*~\n.DS_Store\n
+# Credentials and secrets\ncredentials.json\nsecrets/\n*.pem\n*.key\n
+# Logs\n*.log\nlogs/\n
