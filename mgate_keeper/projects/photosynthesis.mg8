@@ -1,0 +1,13 @@
+{
+  "project_name": "Photosynthesis Reproducible Demo",
+  "project_id": "DEMO_PHOTO",
+  "description": "Demonstrates deterministic LLM responses using multiple gates",
+  "g8son_gates": [
+    "mgate_keeper/projects/g8son/photosynthesis.g8son",
+    "mgate_keeper/projects/g8son/photosynthesis2.g8son"
+  ],
+  "gst_context": "mgate_keeper/projects/gst/photosynthesis.gst",
+  "qson_audit_log": "mgate_keeper/projects/qson/photosynthesis.qson",
+  "model": "gpt-3.5-turbo",
+  "seed": 42
+}

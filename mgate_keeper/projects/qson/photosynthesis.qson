@@ -1,0 +1,14 @@
+{
+  "audit_id": "AUDIT_PHOTO_001",
+  "query": "What is photosynthesis? Explain simply.",
+  "timestamp": "2026-03-30T00:00:00Z",
+  "project_id": "DEMO_PHOTO",
+  "gates_applied": [
+    "G_PHOTOSYNTHESIS",
+    "G_PHOTOSYNTHESIS_STRICT"
+  ],
+  "context_applied": "CTX_PHOTOSYNTHESIS",
+  "model": "gpt-3.5-turbo",
+  "seed": 42,
+  "responses": []
+}

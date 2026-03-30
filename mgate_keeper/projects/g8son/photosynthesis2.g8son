@@ -1,0 +1,31 @@
+{
+  "gate_id": "G_PHOTOSYNTHESIS_STRICT",
+  "gate_name": "Photosynthesis Exact Wording",
+  "atomic_requirements": [
+    {
+      "req_id": "R1",
+      "requirement": "Start with: 'Photosynthesis is the process by which'",
+      "threshold_efficiency": 0.99
+    },
+    {
+      "req_id": "R2",
+      "requirement": "Include exact phrase: 'green plants and some other organisms'",
+      "threshold_efficiency": 0.99
+    },
+    {
+      "req_id": "R3",
+      "requirement": "Include exact phrase: 'use sunlight to convert water and carbon dioxide into glucose'",
+      "threshold_efficiency": 0.99
+    },
+    {
+      "req_id": "R4",
+      "requirement": "Include exact phrase: 'and oxygen'",
+      "threshold_efficiency": 0.99
+    },
+    {
+      "req_id": "R5",
+      "requirement": "End with: 'humans and other animals to breathe'",
+      "threshold_efficiency": 0.99
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "gate_id": "G_PHOTOSYNTHESIS",
+  "gate_name": "Photosynthesis Explanation",
+  "atomic_requirements": [
+    {
+      "req_id": "R1",
+      "requirement": "Define photosynthesis as converting sunlight to glucose",
+      "threshold_efficiency": 0.95
+    },
+    {
+      "req_id": "R2",
+      "requirement": "Mention plants use water and CO2",
+      "threshold_efficiency": 0.95
+    },
+    {
+      "req_id": "R3",
+      "requirement": "Mention oxygen is produced",
+      "threshold_efficiency": 0.95
+    },
+    {
+      "req_id": "R4",
+      "requirement": "Keep explanation simple",
+      "threshold_efficiency": 0.90
+    }
+  ]
+}
