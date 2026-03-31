@@ -4,27 +4,27 @@
   "atomic_requirements": [
     {
       "req_id": "R1",
-      "requirement": "Start with: 'Photosynthesis is the process by which'",
+      "requirement": "Use this word formatting : Subject (the term being defined)then definition'",
       "threshold_efficiency": 0.99
     },
     {
       "req_id": "R2",
-      "requirement": "Include exact phrase: 'green plants and some other organisms'",
+      "requirement": "definition should read simply and order object with corresponding action then next object'",
       "threshold_efficiency": 0.99
     },
     {
       "req_id": "R3",
-      "requirement": "Include exact phrase: 'use sunlight to convert water and carbon dioxide into glucose'",
+      "requirement": "Response must strictly stay to formatting and not add extra wording'",
       "threshold_efficiency": 0.99
     },
     {
       "req_id": "R4",
-      "requirement": "Include exact phrase: 'and oxygen'",
+      "requirement": "Response shall pass all other gates in other .g8son files'",
       "threshold_efficiency": 0.99
     },
     {
       "req_id": "R5",
-      "requirement": "End with: 'humans and other animals to breathe'",
+      "requirement": "check .gst file for specific requirements as well",
       "threshold_efficiency": 0.99
     }
   ]

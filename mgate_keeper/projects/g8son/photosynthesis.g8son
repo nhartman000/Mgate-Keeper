@@ -4,17 +4,17 @@
   "atomic_requirements": [
     {
       "req_id": "R1",
-      "requirement": "Define photosynthesis as converting sunlight to glucose",
+      "requirement": "must explain the process in scientifically correct terms ",
       "threshold_efficiency": 0.95
     },
     {
       "req_id": "R2",
-      "requirement": "Mention plants use water and CO2",
+      "requirement": "explain what elements are used",
       "threshold_efficiency": 0.95
     },
     {
       "req_id": "R3",
-      "requirement": "Mention oxygen is produced",
+      "requirement": "explain what elements are produced",
       "threshold_efficiency": 0.95
     },
     {
