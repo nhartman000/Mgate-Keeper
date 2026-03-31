@@ -4,7 +4,7 @@
   "primary_modality": "Scientific",
   "constraints": [
     "Be precise and accurate",
-    "Use simple language",
-    "Avoid flowery descriptions"
+    "Use exactly 9th grade vocabulary",
+    "use syllabic verse for syllabic rhythm"
   ]
 }

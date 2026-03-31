@@ -7,8 +7,19 @@
     "G_PHOTOSYNTHESIS",
     "G_PHOTOSYNTHESIS_STRICT"
   ],
-  "context_applied": "CTX_PHOTOSYNTHESIS",
+  "context_applied": "Factual",
   "model": "gpt-3.5-turbo",
   "seed": 42,
-  "responses": []
+  "responses": [
+    {
+      "call_number": 1,
+      "response_id": "chatcmpl-DPIeJPDR4e8hBWjzNapoF9G3r0hhZ",
+      "content": "Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize nutrients from carbon dioxide and water. In simple terms, plants use sunlight to make their own food."
+    },
+    {
+      "call_number": 2,
+      "response_id": "chatcmpl-DPIeKTtYNb3LDB8SJk8o6J8xXYJlY",
+      "content": "Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize nutrients from carbon dioxide and water. In simple terms, plants use sunlight to make their own food."
+    }
+  ]
 }
