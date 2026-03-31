@@ -7,32 +7,30 @@ if not os.getenv('OPENAI_API_KEY'):
     print("ERROR: Set OPENAI_API_KEY")
     exit(1)
 
-
-keeper = MGateKeeper(llm_model=model)
+# Load project with gates
+keeper = MGateKeeper(project_file="mgate_keeper/projects/photosynthesis.mg8")
 
 print("\n" + "="*70)
 print("DEMO 4: Multiple Quality Gates - Photosynthesis")
 print("="*70)
-print(f"\nModel: {model}\n")
+print(f"\nModel: {keeper.llm_model}\n")
 
-question = "What is photosynthesis? Explain simply with correct scientific terms."
-response = keeper.query(question)
+print(f"🔐 GATES LOADED ({len(keeper.gates)}):")
+for gate in keeper.gates:
+    print(f"   ✓ {gate.gate_id}: {gate.gate_name}")
 
-print("="*70)
-print("GATE VALIDATION RESULTS")
-print("="*70 + "\n")
-
-if response.g8son_gates_applied:
-    for gate in response.g8son_gates_applied:
-        status = "✓ PASS" if gate.get('gate_passed', True) else "✗ FAIL"
-        confidence = gate.get('overall_confidence', 0.85) * 100
-        print(f"{status} - {gate['gate_name']}: {confidence:.1f}%")
-else:
-    print("(Gates applied - see confidence below)")
+question = "What is photosynthesis? Explain simply."
+response = keeper.query(user_prompt=question, gates=keeper.gates)
 
 print(f"\n{'='*70}")
 print("ANSWER")
 print("="*70)
-print(f"\n{response.content}\n")
-print(f"Overall Confidence: {response.overall_confidence * 100:.1f}%")
+answer = response.choices[0].message.content
+print(f"\n{answer}\n")
+
+print("="*70)
+print("RESPONSE METRICS")
+print("="*70)
+print(f"Response ID: {response.id}")
+print(f"Tokens Used: {response.usage.total_tokens}")
 print("="*70 + "\n")
